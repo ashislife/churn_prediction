@@ -1,100 +1,3 @@
-# import streamlit as st
-# import numpy as np
-# import joblib
-# import tensorflow as tf
-# import os
-
-# # Hide TensorFlow warnings
-# os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
-
-# # -----------------------------
-# # Load Model & Files (FINAL FIX)
-# # -----------------------------
-# @st.cache_resource
-# def load_models():
-#     # Rebuild model architecture manually
-#     model = tf.keras.Sequential([
-#         tf.keras.layers.Dense(128, activation='relu', input_shape=(11,)),
-#         tf.keras.layers.Dropout(0.3),
-#         tf.keras.layers.Dense(64, activation='relu'),
-#         tf.keras.layers.Dropout(0.3),
-#         tf.keras.layers.Dense(32, activation='relu'),
-#         tf.keras.layers.Dropout(0.2),
-#         tf.keras.layers.Dense(1, activation='sigmoid')
-#     ])
-
-#     # Load weights (IMPORTANT)
-#     model.load_weights("model.h5")
-
-#     # Load scaler & features
-#     scaler = joblib.load("scaler.pkl")
-#     feature_names = joblib.load("features.pkl")
-
-#     return model, scaler, feature_names
-
-# model, scaler, feature_names = load_models()
-
-# # -----------------------------
-# # UI
-# # -----------------------------
-# st.set_page_config(page_title="Churn Prediction", page_icon="📊")
-# st.title("📊 Telecom Customer Churn Prediction")
-# st.write("Enter Customer Details")
-
-# # -----------------------------
-# # Inputs
-# # -----------------------------
-# inputs = []
-
-# for feature in feature_names:
-#     value = st.number_input(feature, value=0.0)
-#     inputs.append(value)
-
-# # -----------------------------
-# # Prediction
-# # -----------------------------
-# if st.button("Predict"):
-
-#     data = np.array(inputs).reshape(1, -1)
-
-#     # Auto detect numeric features count
-#     num_features = len(scaler.mean_)
-
-#     # Scale numeric features
-#     numeric_data = data[:, :num_features]
-#     scaled_numeric = scaler.transform(numeric_data)
-
-#     # Remaining encoded features
-#     encoded_data = data[:, num_features:]
-
-#     # Combine
-#     final_input = np.concatenate([scaled_numeric, encoded_data], axis=1)
-
-#     # Predict
-#     prediction = model.predict(final_input, verbose=0)
-#     prob = float(prediction[0][0])
-
-#     # Output
-#     st.subheader(f"Churn Probability: {prob:.2f}")
-
-#     if prob > 0.5:
-#         st.error("❌ Customer Will Churn")
-#     else:
-#         st.success("✅ Customer Will Stay")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import streamlit as st
 import numpy as np
 import joblib
@@ -312,13 +215,13 @@ with tab1:
         """)
         
         st.markdown("---")
-        st.markdown("### 📊 Sample Data")
-        if st.button("Load Sample Customer"):
-            sample_values = [650, 45, 3, 50000, 2, 1, 1, 0, 1, 0, 0]
-            for i, feature in enumerate(feature_names):
-                st.session_state[f"input_{feature}"] = sample_values[i]
-            st.success("✅ Sample data loaded!")
-            st.rerun()
+        # st.markdown("### 📊 Sample Data")
+        # if st.button("Load Sample Customer"):
+        #     sample_values = [650, 45, 3, 50000, 2, 1, 1, 0, 1, 0, 0]
+        #     for i, feature in enumerate(feature_names):
+        #         st.session_state[f"input_{feature}"] = sample_values[i]
+        #     st.success("✅ Sample data loaded!")
+        #     st.rerun()
 
 with tab2:
     st.markdown("### 📊 Prediction History")
