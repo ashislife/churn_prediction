@@ -214,30 +214,35 @@ with tab1:
         ✅ **Check history** for patterns
         """)
         
-st.markdown("### 📊 Sample Data")
+        st.markdown("### 📊 Sample Data")
 
-if st.button("Load Sample Customer"):
+        if st.button("Load Sample Customer"):    
+        # ✅ Safe sample dictionary (must match training features exactly)
+            sample_values = {
+                "CreditScore": 650,
+                "Age": 45,
+                "Tenure": 3,
+                "Balance": 50000,
+                "NumOfProducts": 2,
+                "HasCrCard": 1,
+                "IsActiveMember": 1,
+                "EstimatedSalary": 70000,
+                "Gender_Male": 1,
+                "Geography_Germany": 0,
+                "Geography_Spain": 0
+            }
 
-    sample_values = {
-        "CreditScore": 650,
-        "Age": 45,
-        "Tenure": 3,
-        "Balance": 50000,
-        "NumOfProducts": 2,
-        "HasCrCard": 1,
-        "IsActiveMember": 1,
-        "EstimatedSalary": 70000,
-        "Gender_Male": 1,
-        "Geography_Germany": 0,
-        "Geography_Spain": 0
-    }
+    # ✅ Load safely without overwrite/mismatch
+            for feature in feature_names:
+                if feature in sample_values:
+                    st.session_state[f"input_{feature}"] = sample_values[feature]
+            else:
+                st.session_state[f"input_{feature}"] = 0
 
-    for feature in feature_names:
-        st.session_state[f"input_{feature}"] = sample_values.get(feature, 0)
+            st.success("✅ Sample data loaded successfully!")
+            st.rerun()
 
-    st.success("✅ Sample data loaded!")
-    st.rerun()
-
+            
 with tab2:
     st.markdown("### 📊 Prediction History")
     st.markdown("---")
