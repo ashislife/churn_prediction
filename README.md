@@ -1,167 +1,116 @@
 # 📊 Telecom Customer Churn Prediction using ANN
 
-## 🚀 Project Overview
-
-This project predicts whether a telecom customer will **stay** or **leave (churn)** using an **Artificial Neural Network (ANN)** model.
-
-Customer churn prediction helps telecom companies identify customers who are likely to leave and take preventive actions to retain them.
+An end-to-end Machine Learning web application that predicts whether a telecom customer will churn or not using an Artificial Neural Network (ANN).  
+The model is deployed using Streamlit for real-time interactive predictions.
 
 ---
 
-## 🎯 Objective
-
-* Predict customer churn using Machine Learning & Deep Learning
-* Build ANN model using TensorFlow/Keras
-* Deploy model using Streamlit
-* Host project on GitHub
+## 🚀 Live Demo
+👉 https://churnprediction-iibdp4jj6qgqcnj4mmhngt.streamlit.app/
 
 ---
 
-## 🧠 Model Used
+## 📁 Project Structure
 
-* Artificial Neural Network (ANN)
-* Activation Function: ReLU & Sigmoid
-* Optimizer: Adam
-* Loss Function: Binary Crossentropy
-
----
-
-## 📂 Project Structure
-
-```
 churn_prediction/
-│
-├── app.py                # Streamlit Web App
-├── model.h5              # Trained ANN Model
-├── scaler.pkl            # StandardScaler
-├── requirements.txt      # Dependencies
-├── README.md             # Project Documentation
-└── Telecom_Churn.ipynb   # Model Training Notebook
-```
+├── app.py                          # Streamlit web app
+├── churn_ds.csv                    # Dataset
+├── model.h5                        # Trained ANN model
+├── scaler.pkl                      # Feature scaling object
+├── features.pkl                    # Feature columns used in training
+├── Telecom Customer Churn Prediction using ANN.ipynb
+├── requirements.txt                # Dependencies
+├── runtime.txt                     # Python version for deployment
+├── README.md                       # Project documentation
+├── LICENSE
+├── .gitignore
+└── venv/                           # Virtual environment (not pushed)
+
+---
+
+## 🧠 Problem Statement
+
+Customer churn is a major issue in the telecom industry.  
+This project predicts whether a customer will leave the service based on historical data.
+
+---
+
+## ⚙️ Tech Stack
+
+- Python 3.10
+- TensorFlow / Keras
+- Scikit-learn
+- Pandas
+- NumPy
+- Streamlit
+- Joblib
+
+---
+
+## 🧪 Machine Learning Approach
+
+- Data preprocessing and cleaning
+- Feature scaling using StandardScaler
+- Artificial Neural Network (ANN) model using TensorFlow/Keras
+- Binary classification: Churn / Not Churn
+- Model saved as model.h5 for inference
 
 ---
 
 ## 📊 Features Used
 
-* CreditScore
-* Age
-* Tenure
-* Balance
-* NumOfProducts
-* HasCrCard
-* IsActiveMember
-* EstimatedSalary
-* Geography (Germany/Spain)
-* Gender
+- Customer demographics
+- Account information
+- Contract type
+- Payment method
+- Tenure
+- Service usage details
 
 ---
 
-## ⚙️ Installation
+## 🖥️ How to Run Locally
 
-### 1️⃣ Clone Repository
-
-```
-git clone https://github.com/your-username/churn_prediction.git
+### 1. Clone repository
+git clone https://github.com/ashislife/churn_prediction
 cd churn_prediction
-```
 
-### 2️⃣ Create Virtual Environment
-
-```
+### 2. Create virtual environment
 python -m venv venv
-```
+venv\Scripts\activate   # Windows
 
-Activate environment:
-
-**Windows**
-
-```
-venv\Scripts\activate
-```
-
-**Linux/Mac**
-
-```
-source venv/bin/activate
-```
-
-### 3️⃣ Install Requirements
-
-```
+### 3. Install dependencies
 pip install -r requirements.txt
-```
 
----
-
-## ▶️ Run Streamlit App
-
-```
+### 4. Run Streamlit app
 streamlit run app.py
-```
-
-App will open in browser:
-
-```
-http://localhost:8501
-```
 
 ---
 
-## 🌐 Deployment (GitHub + Streamlit Cloud)
+## 📦 Model Details
 
-1. Push project to GitHub
-2. Go to Streamlit Cloud
-3. Connect GitHub repository
-4. Select `app.py`
-5. Deploy 🚀
-
----
-
-## 📈 Model Performance
-
-* Accuracy: ~85% (Approx.)
-* Binary Classification Problem
+- Model Type: Artificial Neural Network (ANN)
+- Framework: TensorFlow / Keras
+- Input Scaling: StandardScaler
+- Output: Binary Classification (0 = No Churn, 1 = Churn)
 
 ---
 
-## 🖥️ App Preview
+## 🎯 Future Improvements
 
-Users enter customer details and system predicts:
-
-✅ Customer Will Stay
-❌ Customer Will Churn
-
----
-
-## 🛠️ Technologies Used
-
-* Python
-* TensorFlow / Keras
-* Scikit-learn
-* Pandas
-* NumPy
-* Streamlit
-* GitHub
+- Add probability prediction graph
+- Improve UI with dashboards
+- Deploy on AWS / Render / HuggingFace
+- Add explainable AI (SHAP / LIME)
 
 ---
 
 ## 👨‍💻 Author
 
-**Ashish Kumar**
-AIML Student
-Role: Model Development & Training
+Ashish Kumar  
+GitHub: https://github.com/ashislife/churn_prediction
 
 ---
 
-## ⭐ Future Improvements
+## ⭐ Support
 
-* Add Database Support
-* Improve Model Accuracy
-* Add Customer Dashboard
-* Cloud Deployment
-
----
-
-## 📜 License
-
-This project is for educational and academic purposes.
+If you like this project, please give a ⭐ to the repository.
