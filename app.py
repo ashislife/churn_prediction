@@ -214,35 +214,37 @@ with tab1:
         ✅ **Check history** for patterns
         """)
         
-        st.markdown("### 📊 Sample Data")
+st.markdown("### 📊 Sample Data")
 
-        if st.button("Load Sample Customer"):    
-        # ✅ Safe sample dictionary (must match training features exactly)
-            sample_values = {
-                "CreditScore": 650,
-                "Age": 45,
-                "Tenure": 3,
-                "Balance": 50000,
-                "NumOfProducts": 2,
-                "HasCrCard": 1,
-                "IsActiveMember": 1,
-                "EstimatedSalary": 70000,
-                "Gender_Male": 1,
-                "Geography_Germany": 0,
-                "Geography_Spain": 0
-            }
+if st.button("Load Sample Customer"):
 
-    # ✅ Load safely without overwrite/mismatch
-            for feature in feature_names:
-                if feature in sample_values:
-                    st.session_state[f"input_{feature}"] = sample_values[feature]
-            else:
-                st.session_state[f"input_{feature}"] = 0
+    sample_values = {
+        "CreditScore": 650,
+        "Age": 45,
+        "Tenure": 3,
+        "Balance": 50000,
+        "NumOfProducts": 2,
+        "HasCrCard": 1,
+        "IsActiveMember": 1,
+        "EstimatedSalary": 70000,
+        "Gender_Male": 1,
+        "Geography_Germany": 0,
+        "Geography_Spain": 0
+    }
 
-            st.success("✅ Sample data loaded successfully!")
-            st.rerun()
+    # ✅ FIRST: collect updates safely
+    updates = {}
 
-            
+    for feature in feature_names:
+        updates[f"input_{feature}"] = sample_values.get(feature, 0)
+
+    # ✅ SECOND: apply updates AFTER loop
+    for key, value in updates.items():
+        st.session_state[key] = value
+
+    st.success("✅ Sample data loaded!")
+
+
 with tab2:
     st.markdown("### 📊 Prediction History")
     st.markdown("---")
