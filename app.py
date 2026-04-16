@@ -214,17 +214,14 @@ with tab1:
         ✅ **Check history** for patterns
         """)
         
-st.markdown("### 📊 Sample Data")
-if st.button("Show Sample Values"):
-    st.code("""
-    CreditScore: 650
-    Age: 45
-    Tenure: 3  
-    Balance: 50000
-    NumOfProducts: 2
-    HasCrCard: 1
-    IsActiveMember: 1
-    """)
+    st.markdown("### 📊 Sample Data")
+    if st.button("Load Sample Customer"):
+        sample_values = [650, 45, 3, 50000, 2, 1, 1, 0, 1, 0, 0]
+    # Direct number input values set karne ke liye session state use karo
+        for i, feature in enumerate(feature_names):
+            st.session_state[f"input_{feature}"] = sample_values[i]
+        st.success("✅ Sample data loaded!")
+        st.rerun()
 
 with tab2:
     st.markdown("### 📊 Prediction History")
