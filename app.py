@@ -214,35 +214,35 @@ with tab1:
         ✅ **Check history** for patterns
         """)
         
-st.markdown("### 📊 Sample Data")
+# st.markdown("### 📊 Sample Data")
 
-if st.button("Load Sample Customer"):
+# if st.button("Load Sample Customer"):
 
-    sample_values = {
-        "CreditScore": 650,
-        "Age": 45,
-        "Tenure": 3,
-        "Balance": 50000,
-        "NumOfProducts": 2,
-        "HasCrCard": 1,
-        "IsActiveMember": 1,
-        "EstimatedSalary": 70000,
-        "Gender_Male": 1,
-        "Geography_Germany": 0,
-        "Geography_Spain": 0
-    }
+#     sample_values = {
+#         "CreditScore": 650,
+#         "Age": 45,
+#         "Tenure": 3,
+#         "Balance": 50000,
+#         "NumOfProducts": 2,
+#         "HasCrCard": 1,
+#         "IsActiveMember": 1,
+#         "EstimatedSalary": 70000,
+#         "Gender_Male": 1,
+#         "Geography_Germany": 0,
+#         "Geography_Spain": 0
+#     }
 
-    # ✅ FIRST: collect updates safely
-    updates = {}
+#     # ✅ FIRST: collect updates safely
+#     updates = {}
 
-    for feature in feature_names:
-        updates[f"input_{feature}"] = sample_values.get(feature, 0)
+#     for feature in feature_names:
+#         updates[f"input_{feature}"] = sample_values.get(feature, 0)
 
-    # ✅ SECOND: apply updates AFTER loop
-    for key, value in updates.items():
-        st.session_state[key] = value
+#     # ✅ SECOND: apply updates AFTER loop
+#     for key, value in updates.items():
+#         st.session_state[key] = value
 
-    st.success("✅ Sample data loaded!")
+#     st.success("✅ Sample data loaded!")
 
 
 with tab2:
